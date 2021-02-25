@@ -1,0 +1,17 @@
+.list-container {
+  /* positioning */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /* sizing */
+  min-height: 40vh;
+  width: 50%;
+
+  /* styling */
+  background-color: lightcoral;
+}
+
+.list-title {
+  font-size: large;
+}

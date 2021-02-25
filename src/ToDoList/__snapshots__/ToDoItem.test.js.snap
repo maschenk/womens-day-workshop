@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<div>
+  <li
+    data-testid="to-do-item"
+  >
+    <input
+      data-testid="item-checkbox"
+      type="checkbox"
+    />
+     
+    test item
+  </li>
+</div>
+`;
