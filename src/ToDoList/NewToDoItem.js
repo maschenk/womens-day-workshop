@@ -35,7 +35,7 @@ class NewToDoItem extends React.Component {
         />
 
         <button type="button" onClick={this.handleAdd} data-testid="add-button">
-          Add a new Item
+          Add To Do
         </button>
       </div>
     );
