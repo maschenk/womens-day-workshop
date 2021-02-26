@@ -26,7 +26,6 @@ class ToDoList extends React.Component {
       itemText: newItemText,
       checked: false
     });
-    console.log(items);
 
     this.setState({ items: items });
   }
