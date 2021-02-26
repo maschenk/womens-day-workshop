@@ -1,14 +1,9 @@
 import { render, fireEvent } from '@testing-library/react';
 import NewToDoItem from './NewToDoItem';
 
-const onAddMock = jest.fn();
-
-test('should render', () => {
-  const { container } = render(<NewToDoItem onAdd={onAddMock} />);
-  expect(container).toMatchSnapshot();
-});
-
 test('should add item', () => {
+  const onAddMock = jest.fn();
+
   const component = render(<NewToDoItem onAdd={onAddMock} />);
 
   const inputField = component.getByTestId('item-input');

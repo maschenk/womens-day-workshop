@@ -1,9 +1,12 @@
 const list = {
   title: 'Make a to do list work!',
   items: [
-    { itemText: 'Show the items in the list', checked: false },
-    { itemText: 'Check off an item', checked: false },
-    { itemText: 'Add a new item to the list', checked: false },
+    { itemText: 'Show the To Dos in the list', checked: false },
+    { itemText: 'Mark a To Do as done', checked: false },
+    {
+      itemText: 'Create a button to add a new To Do to the list',
+      checked: false
+    },
     { itemText: 'Optional: make it look like I want to', checked: false }
   ]
 };
