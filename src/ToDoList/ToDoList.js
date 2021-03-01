@@ -1,66 +1,49 @@
-import React from 'react';
-import './ToDoList.css';
-import ToDoItem from './ToDoItem';
-import NewToDoItem from './NewToDoItem';
+import React from "react";
+import "./ToDoList.css";
+import ToDoItem from "./ToDoItem";
+import NewToDoItem from "./NewToDoItem";
 
 class ToDoList extends React.Component {
-  constructor() {
-    super();
-    this.state = { items: [] };
+  state = { items: this.props.list.items };
 
-    this.addItem = this.addItem.bind(this);
-    this.checkItem = this.checkItem.bind(this);
-  }
+  addItem = (newItemText) => {
+    const newItem = { itemText: newItemText, checked: false };
 
-  componentDidMount() {
-    const {
-      list: { items }
-    } = this.props;
+    this.setState((state) => {
+      return {
+        items: [...state.items, newItem],
+      };
+    });
+  };
 
-    this.setState({ items: items });
-  }
-
-  addItem(newItemText) {
-    const { items } = this.state;
-    items.push({
-      itemText: newItemText,
-      checked: false
+  checkItem = (index) => {
+    const updatedItemList = this.state.items.map((item, i) => {
+      if (i === index) {
+        item.checked = !item.checked;
+      }
+      return item;
     });
 
-    this.setState({ items: items });
-  }
-
-  checkItem(index) {
-    const { items } = this.state;
-
-    const oldStatus = items[index].checked;
-
-    items[index].checked = !oldStatus;
-
-    this.setState({ items: items });
-  }
+    this.setState({
+      items: updatedItemList,
+    });
+  };
 
   render() {
-    const { items } = this.state;
-    const {
-      list: { title }
-    } = this.props;
-
     return (
       <div className="list-container" data-testid="list-container">
         <h4 className="list-title" data-testid="list-title">
-          {title}
+          {this.props.list.title}
         </h4>
         <ul className="list-list" data-testid="list-list">
-          {items &&
-            items.map((item, index) => (
-              <ToDoItem
-                key={item.itemText}
-                item={item}
-                onCheck={this.checkItem}
-                index={index}
-              />
-            ))}
+          {this.state.items.map((item, index) => (
+            <ToDoItem
+              key={item.itemText}
+              item={item}
+              onCheck={this.checkItem}
+              index={index}
+            />
+          ))}
         </ul>
         <NewToDoItem onAdd={this.addItem} />
       </div>

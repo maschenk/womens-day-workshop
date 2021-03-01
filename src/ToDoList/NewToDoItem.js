@@ -1,25 +1,17 @@
 import React from 'react';
 
 class NewToDoItem extends React.Component {
-  constructor() {
-    super();
-    this.state = { text: '' };
+  state = { text: '' };
 
-    this.handleAdd = this.handleAdd.bind(this);
-    this.updateText = this.updateText.bind(this);
-  }
-
-  handleAdd(event) {
+  handleAdd = (event) => {
     event.preventDefault();
-    const { text: newItemText } = this.state;
-    const { onAdd } = this.props;
 
-    onAdd(newItemText);
+    this.state.text !== '' && this.props.onAdd(this.state.text);
 
     this.setState({ text: '' });
   }
 
-  updateText(event) {
+  updateText = (event) => {
     event.preventDefault();
     this.setState({ text: event.target.value });
   }

@@ -16,9 +16,9 @@ test('renders a list with children', () => {
   expect(list).toContainHTML('li');
 });
 
-test('contains four to-do items', () => {
+test('contains five to-do items', () => {
   const items = screen.getAllByTestId('to-do-item');
-  expect(items).toHaveLength(4);
+  expect(items).toHaveLength(5);
 });
 
 test('renders a new to-do item component with an input field and a button', () => {
