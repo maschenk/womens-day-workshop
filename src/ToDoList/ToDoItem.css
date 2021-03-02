@@ -1,7 +1,0 @@
-li {
-  list-style: none;
-}
-
-li.done {
-  text-decoration: line-through;
-}
