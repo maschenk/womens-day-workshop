@@ -1,15 +1,17 @@
-import React from "react";
-import "./NewToDoItem.css";
+import React from 'react';
+import './NewToDoItem.css';
 
 class NewToDoItem extends React.Component {
-  state = { text: "" };
+  state = { text: '' };
 
   handleAdd = (event) => {
     event.preventDefault();
 
-    this.state.text !== "" && this.props.onAdd(this.state.text);
+    if (this.state.text !== '') {
+      // implement a handler here :)
+    }
 
-    this.setState({ text: "" });
+    this.setState({ text: '' });
   };
 
   updateText = (event) => {
@@ -27,14 +29,7 @@ class NewToDoItem extends React.Component {
           data-testid="item-input"
         />
 
-        <button
-          className="add-button"
-          type="button"
-          onClick={this.handleAdd}
-          data-testid="add-button"
-        >
-          Add To Do
-        </button>
+        {/* This seems like a nice spot for a button */}
       </div>
     );
   }

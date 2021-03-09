@@ -1,21 +1,19 @@
-import React from "react";
-import "./ToDoItem.css";
+import React from 'react';
+import './ToDoItem.css';
 
-const ToDoItem = ({ item: { itemText, checked }, onCheck, index }) => {
-  const handleCheck = () => {
-    onCheck(index);
-  };
-  const todoClass = checked ? "done" : "undone";
+const ToDoItem = ({ item, onCheck, index }) => {
+  const todoClass = item.checked ? 'done' : 'undone';
 
   return (
     <li className={todoClass} data-testid="to-do-item">
       <input
         type="checkbox"
-        checked={checked}
-        onChange={handleCheck}
+        checked={item.checked}
+        // this input field needs a real handler
+        onChange={() => {}}
         data-testid="item-checkbox"
       />
-      {itemText}
+      {item.itemText}
     </li>
   );
 };

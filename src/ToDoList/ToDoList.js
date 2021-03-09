@@ -1,8 +1,8 @@
-import React from "react";
-import "./ToDoList.css";
-import ToDoItem from "./ToDoItem";
-import NewToDoItem from "./NewToDoItem";
-import { ReactComponent as Logo } from "../babbelLogo.svg";
+import React from 'react';
+import './ToDoList.css';
+import ToDoItem from './ToDoItem';
+import NewToDoItem from './NewToDoItem';
+import { ReactComponent as Logo } from '../babbelLogo.svg';
 
 class ToDoList extends React.Component {
   state = { items: this.props.list.items };
@@ -12,7 +12,7 @@ class ToDoList extends React.Component {
 
     this.setState((state) => {
       return {
-        items: [...state.items, newItem],
+        items: [...state.items, newItem]
       };
     });
   };
@@ -25,9 +25,8 @@ class ToDoList extends React.Component {
       return item;
     });
 
-    this.setState({
-      items: updatedItemList,
-    });
+    // Just printing the list to the console won't cause a re-rendering...
+    console.log(updatedItemList);
   };
 
   render() {
@@ -38,14 +37,13 @@ class ToDoList extends React.Component {
           {this.props.list.title}
         </h4>
         <ul className="list-list" data-testid="list-list">
-          {this.state.items.map((item, index) => (
-            <ToDoItem
-              key={item.itemText}
-              item={item}
-              onCheck={this.checkItem}
-              index={index}
-            />
-          ))}
+          {/* This currently only shows 1 item, we want to see all of them! */}
+          <ToDoItem
+            key={this.state.items[0].itemText}
+            item={this.state.items[0]}
+            onCheck={this.checkItem}
+            index="0"
+          />
         </ul>
         <NewToDoItem onAdd={this.addItem} />
       </div>
